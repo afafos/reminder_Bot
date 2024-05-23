@@ -352,7 +352,7 @@ def start(message):
     create_user_reminders_table(user.id)
     welcome_message = (
         f"Hello, {user.first_name}!\n"
-        "I'm ReminderBot. I will help you not to forget the most important things and remind you of upcoming matters.\n"
+        "I'm testReminderBot. I will help you not to forget the most important things and remind you of upcoming matters.\n"
         "Message me /create to create a reminder.\n"
     )
     add_user_schedule(user.id, 1)
