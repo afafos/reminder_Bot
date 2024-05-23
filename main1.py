@@ -785,20 +785,24 @@ def add_user_schedule(user_id, interval_minutes):
     user_schedules[user_id] = schedule.every(interval_minutes).minutes.do(check_reminders, user_id)
 
 
-def start_check_reminders():
-    while True:
-        schedule.run_pending()
-        time.sleep(30)
+# def start_check_reminders():
+#     while True:
+#         schedule.run_pending()
+#         time.sleep(30)
 
 
-def main():
-    reminder_thread = threading.Thread(target=start_check_reminders)
-    reminder_thread.start()
+# def main():
+#     reminder_thread = threading.Thread(target=start_check_reminders)
+#     reminder_thread.start()
+#     bot.polling()
+
+def start_bot_polling():
     bot.polling()
 
 
 if __name__ == '__main__':
-    try:
-        main()
-    except Exception:
-        main()
+    bot_thread = threading.Thread(target=start_bot_polling)
+    bot_thread.start()
+
+    uvicorn.run('server:app', host='0.0.0.0', port=5000, reload=True)
+

@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - 5000:5000
+
+
+volumes:
+  postgres:
