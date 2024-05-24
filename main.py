@@ -351,7 +351,7 @@ def start(message):
     user = message.from_user
     create_user_reminders_table(user.id)
     welcome_message = (
-        f"Hello, {user.first_name}!\n"
+        f"testHello, {user.first_name}!\n"
         "I'm test2ReminderBot. I will help you not to forget the most important things and remind you of upcoming matters.\n"
         "Message me /create to create a reminder.\n"
     )
